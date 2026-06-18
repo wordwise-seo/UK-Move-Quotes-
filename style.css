@@ -2,8 +2,8 @@
 
 :root {
   --navy:       #0B2545;
-  --teal:       #1B8CA6;
-  --teal-light: #E8F4F8;
+  --teal:       #E8830A;
+  --teal-light: #FEF3E2;
   --bg:         #F7F9FB;
   --white:      #FFFFFF;
   --text:       #2C2C2C;
@@ -68,7 +68,7 @@ nav {
   border-radius: 6px;
   transition: background 0.2s !important;
 }
-.nav-cta:hover { background: #167991 !important; }
+.nav-cta:hover { background: #C4700A !important; }
 
 /* PAGE HERO (inner pages) */
 .page-hero {
@@ -81,8 +81,8 @@ nav {
 }
 .page-label {
   display: inline-block;
-  background: rgba(27,140,166,0.2);
-  color: #7ECFE0;
+  background: rgba(232,131,10,0.2);
+  color: #F5A94A;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -101,7 +101,7 @@ nav {
 }
 .page-hero h1 em {
   font-style: normal;
-  color: #7ECFE0;
+  color: #F5A94A;
 }
 .page-hero-sub {
   font-size: 1.05rem;
@@ -220,7 +220,7 @@ nav {
   background: var(--navy);
   padding: 72px 24px;
 }
-.dark-section .section-label { color: #7ECFE0; }
+.dark-section .section-label { color: #F5A94A; }
 .dark-section .section-title { color: var(--white); }
 .dark-section .section-sub { color: #A8BDD0; }
 .dark-card {
@@ -243,7 +243,7 @@ nav {
 .dark-icon {
   width: 44px;
   height: 44px;
-  background: rgba(27,140,166,0.25);
+  background: rgba(232,131,10,0.25);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -322,7 +322,7 @@ nav {
   text-decoration: none;
   transition: background 0.2s;
 }
-.cta-btn:hover { background: #167991; }
+.cta-btn:hover { background: #C4700A; }
 
 /* FORM (mini inline) */
 .inline-form {
@@ -339,7 +339,7 @@ nav {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--teal), #7ECFE0);
+  background: linear-gradient(90deg, var(--teal), #F5A94A);
 }
 .form-group { margin-bottom: 16px; }
 .form-group label {
@@ -367,7 +367,7 @@ nav {
 .form-group select:focus {
   outline: none;
   border-color: var(--teal);
-  box-shadow: 0 0 0 3px rgba(27,140,166,0.12);
+  box-shadow: 0 0 0 3px rgba(232,131,10,0.12);
 }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .select-wrap { position: relative; }
@@ -396,7 +396,7 @@ nav {
   margin-top: 8px;
   transition: background 0.2s, transform 0.1s;
 }
-.btn-submit:hover { background: #167991; }
+.btn-submit:hover { background: #C4700A; }
 .btn-submit:active { transform: scale(0.99); }
 .form-note {
   text-align: center;

@@ -3,24 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Get free quotes from trusted removal companies in Crawley, West Sussex. Compare prices, book with confidence. No obligation.">
-<title>Removals Crawley | Free Quotes | UK Move Quotes</title>
+<meta name="description" content="Get free removal quotes from trusted local companies in Crawley, West Sussex. Compare prices in minutes. No obligation, completely free.">
+<meta name="keywords" content="removals Crawley, removal companies Crawley, house removals Crawley, man with a van Crawley, removal quotes West Sussex">
+<title>Removals Crawley | Free Quotes from Local Companies | UK Move Quotes</title>
+<link rel="canonical" href="https://ukmovequotes.co.uk/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="google-site-verification" content="fxQg9DfU35gQRU-cVcF-H1ZuxBitWvmQ5e8qa2YY_z0" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PBT4JKF1NJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-PBT4JKF1NJ");
+  </script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --navy:   #0B2545;
-    --teal:   #1B8CA6;
-    --teal-light: #E8F4F8;
-    --bg:     #F7F9FB;
-    --white:  #FFFFFF;
-    --text:   #2C2C2C;
-    --muted:  #637384;
-    --border: #DDE4EA;
-    --radius: 10px;
+    --navy:        #0B2545;
+    --orange:      #E8830A;
+    --orange-light:#FEF3E2;
+    --orange-dark: #C4700A;
+    --bg:          #F7F9FB;
+    --white:       #FFFFFF;
+    --text:        #2C2C2C;
+    --muted:       #637384;
+    --border:      #DDE4EA;
   }
 
   html { scroll-behavior: smooth; }
@@ -34,14 +46,14 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     background: var(--navy);
     padding: 0 24px;
     position: sticky;
     top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 12px rgba(11,37,69,0.18);
+    z-index: 200;
+    box-shadow: 0 2px 12px rgba(11,37,69,0.2);
   }
   .nav-inner {
     max-width: 1100px;
@@ -57,21 +69,94 @@
     color: var(--white);
     letter-spacing: -0.3px;
     text-decoration: none;
+    flex-shrink: 0;
   }
-  .logo span { color: var(--teal); }
-  .nav-cta {
-    background: var(--teal);
-    color: var(--white);
+  .logo span { color: var(--orange); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .nav-links a {
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 500;
+    color: #A8BDD0;
+    text-decoration: none;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--orange) !important;
+    color: var(--white) !important;
+    font-weight: 600 !important;
     padding: 8px 20px;
     border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.2s;
+    transition: background 0.2s !important;
   }
-  .nav-cta:hover { background: #1679914; }
+  .nav-cta:hover { background: var(--orange-dark) !important; }
 
-  /* ── HERO ── */
+  /* HAMBURGER */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.25s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* MOBILE MENU */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0; right: 0;
+    background: var(--navy);
+    padding: 20px 24px 28px;
+    z-index: 199;
+    box-shadow: 0 8px 24px rgba(11,37,69,0.25);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a {
+    display: block;
+    padding: 13px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #A8BDD0;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--white); }
+  .mobile-menu .mob-cta {
+    display: block;
+    margin-top: 16px;
+    background: var(--orange);
+    color: var(--white) !important;
+    font-weight: 700;
+    text-align: center;
+    padding: 14px;
+    border-radius: 8px;
+    border-bottom: none;
+    font-size: 1rem;
+  }
+  .mobile-menu .mob-cta:hover { background: var(--orange-dark); }
+
+  /* HERO */
   .hero {
     background: var(--navy);
     padding: 64px 24px 80px;
@@ -84,17 +169,25 @@
     gap: 64px;
     align-items: start;
   }
+  .hero-tagline {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
   .hero-label {
     display: inline-block;
-    background: rgba(27,140,166,0.2);
-    color: #7ECFE0;
+    background: rgba(232,131,10,0.15);
+    color: #F5A94A;
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 5px 12px;
     border-radius: 4px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
   .hero h1 {
     font-size: clamp(2rem, 4vw, 2.8rem);
@@ -106,7 +199,7 @@
   }
   .hero h1 em {
     font-style: normal;
-    color: #7ECFE0;
+    color: #F5A94A;
   }
   .hero-sub {
     font-size: 1.05rem;
@@ -129,7 +222,7 @@
   }
   .trust-item svg { flex-shrink: 0; }
 
-  /* ── FORM CARD ── */
+  /* FORM CARD */
   .form-card {
     background: var(--white);
     border-radius: 14px;
@@ -143,7 +236,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--teal), #7ECFE0);
+    background: linear-gradient(90deg, var(--orange), #F5A94A);
   }
   .form-card h2 {
     font-size: 1.15rem;
@@ -151,7 +244,7 @@
     color: var(--navy);
     margin-bottom: 6px;
   }
-  .form-card p {
+  .form-card > p {
     font-size: 0.875rem;
     color: var(--muted);
     margin-bottom: 24px;
@@ -163,7 +256,6 @@
     font-weight: 600;
     color: var(--navy);
     margin-bottom: 6px;
-    letter-spacing: 0.01em;
   }
   .form-group input,
   .form-group select {
@@ -182,23 +274,17 @@
   .form-group input:focus,
   .form-group select:focus {
     outline: none;
-    border-color: var(--teal);
-    box-shadow: 0 0 0 3px rgba(27,140,166,0.12);
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(232,131,10,0.12);
   }
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .select-wrap { position: relative; }
   .select-wrap::after {
     content: '';
     position: absolute;
-    right: 14px;
-    top: 50%;
+    right: 14px; top: 50%;
     transform: translateY(-50%);
-    width: 0;
-    height: 0;
+    width: 0; height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 5px solid var(--muted);
@@ -207,7 +293,7 @@
   .btn-submit {
     width: 100%;
     padding: 14px;
-    background: var(--teal);
+    background: var(--orange);
     color: var(--white);
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
@@ -217,9 +303,8 @@
     cursor: pointer;
     margin-top: 8px;
     transition: background 0.2s, transform 0.1s;
-    letter-spacing: 0.01em;
   }
-  .btn-submit:hover { background: #167991; }
+  .btn-submit:hover { background: var(--orange-dark); }
   .btn-submit:active { transform: scale(0.99); }
   .form-note {
     text-align: center;
@@ -227,22 +312,24 @@
     color: var(--muted);
     margin-top: 12px;
   }
-  .form-note svg { vertical-align: -2px; margin-right: 3px; }
+  .success-card {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .success-card svg { display: block; margin: 0 auto 16px; }
+  .success-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .success-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
 
-  /* ── HOW IT WORKS ── */
-  .section {
-    padding: 80px 24px;
-  }
-  .section-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+  /* SECTIONS */
+  .section { padding: 80px 24px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
   .section-label {
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--teal);
+    color: var(--orange);
     margin-bottom: 10px;
   }
   .section-title {
@@ -256,64 +343,37 @@
   .section-sub {
     font-size: 1rem;
     color: var(--muted);
-    max-width: 520px;
-    margin-bottom: 52px;
     line-height: 1.65;
+    margin-bottom: 52px;
   }
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-  }
+
+  /* STEPS */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
   .step {
     background: var(--white);
     border-radius: 12px;
     padding: 32px 28px;
     border: 1.5px solid var(--border);
-    position: relative;
   }
   .step-number {
-    width: 40px;
-    height: 40px;
-    background: var(--teal-light);
+    width: 40px; height: 40px;
+    background: var(--orange-light);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    font-weight: 800;
-    color: var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; font-weight: 800;
+    color: var(--orange);
     margin-bottom: 20px;
   }
-  .step h3 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 10px;
-  }
-  .step p {
-    font-size: 0.9rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
+  .step h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .step p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
 
-  /* ── WHY US ── */
-  .why-section {
-    background: var(--navy);
-    padding: 80px 24px;
-  }
-  .why-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .why-section .section-label { color: #7ECFE0; }
+  /* WHY SECTION */
+  .why-section { background: var(--navy); padding: 80px 24px; }
+  .why-inner { max-width: 1100px; margin: 0 auto; }
+  .why-section .section-label { color: #F5A94A; }
   .why-section .section-title { color: var(--white); }
   .why-section .section-sub { color: #A8BDD0; }
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
+  .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .why-card {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.1);
@@ -321,70 +381,90 @@
     padding: 28px 24px;
   }
   .why-icon {
-    width: 44px;
-    height: 44px;
-    background: rgba(27,140,166,0.25);
+    width: 44px; height: 44px;
+    background: rgba(232,131,10,0.2);
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     margin-bottom: 16px;
   }
-  .why-card h3 {
+  .why-card h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+  .why-card p { font-size: 0.875rem; color: #A8BDD0; line-height: 1.6; }
+
+  /* FAQ */
+  .faq-section { background: var(--white); padding: 80px 24px; }
+  .faq-inner { max-width: 780px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 24px 0; cursor: pointer; }
+  .faq-item:first-of-type { border-top: 1px solid var(--border); }
+  .faq-q {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .why-card p {
-    font-size: 0.875rem;
-    color: #A8BDD0;
-    line-height: 1.6;
-  }
-
-  /* ── AREAS ── */
-  .areas-section { background: var(--white); padding: 80px 24px; }
-  .areas-inner { max-width: 1100px; margin: 0 auto; }
-  .areas-grid {
+    color: var(--navy);
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 36px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    user-select: none;
   }
+  .faq-q svg { flex-shrink: 0; transition: transform 0.25s; }
+  .faq-item.open .faq-q svg { transform: rotate(180deg); }
+  .faq-a {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-top: 12px;
+    display: none;
+  }
+  .faq-item.open .faq-a { display: block; }
+
+  /* AREAS */
+  .areas-section { padding: 80px 24px; }
+  .areas-inner { max-width: 1100px; margin: 0 auto; }
+  .areas-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
   .area-tag {
-    background: var(--teal-light);
-    color: var(--teal);
+    background: var(--orange-light);
+    color: var(--orange-dark);
     font-size: 0.875rem;
     font-weight: 600;
     padding: 8px 16px;
     border-radius: 6px;
   }
 
-  /* ── CTA BAND ── */
+  /* BLOG PREVIEW */
+  .blog-section { background: var(--white); padding: 80px 24px; }
+  .blog-inner { max-width: 1100px; margin: 0 auto; }
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+  .blog-card {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 28px 24px;
+    border: 1.5px solid var(--border);
+    text-decoration: none;
+    display: block;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .blog-card:hover { border-color: var(--orange); box-shadow: 0 4px 20px rgba(232,131,10,0.1); }
+  .blog-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+  .blog-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.4; }
+  .blog-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+  /* CTA BAND */
   .cta-band {
     background: linear-gradient(135deg, #0B2545 0%, #1B3F6A 100%);
     padding: 80px 24px;
     text-align: center;
   }
-  .cta-band h2 {
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 800;
-    color: var(--white);
-    letter-spacing: -0.3px;
-    margin-bottom: 14px;
-  }
-  .cta-band p {
-    font-size: 1rem;
-    color: #A8BDD0;
-    margin-bottom: 32px;
-    max-width: 460px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.65;
-  }
+  .cta-band h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--white); letter-spacing: -0.3px; margin-bottom: 14px; }
+  .cta-band p { font-size: 1rem; color: #A8BDD0; margin-bottom: 32px; max-width: 460px; margin-left: auto; margin-right: auto; line-height: 1.65; }
   .cta-btn {
     display: inline-block;
-    background: var(--teal);
+    background: var(--orange);
     color: var(--white);
     font-weight: 700;
     font-size: 1rem;
@@ -393,147 +473,106 @@
     text-decoration: none;
     transition: background 0.2s;
   }
-  .cta-btn:hover { background: #167991; }
+  .cta-btn:hover { background: var(--orange-dark); }
 
-  /* ── FOOTER ── */
-  footer {
-    background: #060F1C;
-    padding: 40px 24px;
-    text-align: center;
-  }
-  .footer-logo {
-    font-size: 1rem;
-    font-weight: 800;
-    color: var(--white);
-    text-decoration: none;
-    display: inline-block;
-    margin-bottom: 12px;
-  }
-  .footer-logo span { color: var(--teal); }
-  footer p {
-    font-size: 0.82rem;
-    color: #4A6278;
-    margin-bottom: 6px;
-    line-height: 1.6;
-  }
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-top: 16px;
-  }
-  .footer-links a {
-    font-size: 0.82rem;
-    color: #4A6278;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--teal); }
+  /* FOOTER */
+  footer { background: #060F1C; padding: 40px 24px; text-align: center; }
+  .footer-logo { font-size: 1rem; font-weight: 800; color: var(--white); text-decoration: none; display: inline-block; margin-bottom: 12px; }
+  .footer-logo span { color: var(--orange); }
+  footer p { font-size: 0.82rem; color: #4A6278; margin-bottom: 6px; line-height: 1.6; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.82rem; color: #4A6278; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--orange); }
 
-  /* ── SUCCESS STATE ── */
-  .success-card {
-    display: none;
-    text-align: center;
-    padding: 20px 0;
-  }
-  .success-card svg {
-    display: block;
-    margin: 0 auto 16px;
-  }
-  .success-card h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 8px;
-  }
-  .success-card p {
-    font-size: 0.9rem;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 0;
-  }
-
-  /* ── RESPONSIVE ── */
+  /* RESPONSIVE */
   @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
     .hero-inner { grid-template-columns: 1fr; gap: 40px; }
     .steps { grid-template-columns: 1fr; gap: 20px; }
     .why-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 540px) {
-    .hero { padding: 40px 20px 52px; }
+    .hero { padding: 44px 20px 56px; }
     .section { padding: 56px 20px; }
-    .why-section, .areas-section, .cta-band { padding: 56px 20px; }
+    .why-section, .faq-section, .areas-section, .blog-section, .cta-band { padding: 56px 20px; }
     .form-card { padding: 24px 20px; }
   }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; }
-  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
-  <meta name="google-site-verification" content="fxQg9DfU35gQRU-cVcF-H1ZuxBitWvmQ5e8qa2YY_z0" />
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PBT4JKF1NJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "G-PBT4JKF1NJ");
-  </script>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="logo">UKMove<span>Quotes</span></a>
-    <a href="#quote-form" class="nav-cta">Get Free Quotes</a>
+    <a href="/" class="logo">UKMove<span>Quotes</span></a>
+    <div class="nav-links">
+      <a href="house-removals-crawley.html">House Removals</a>
+      <a href="man-with-a-van-crawley.html">Man With a Van</a>
+      <a href="office-removals-crawley.html">Office Removals</a>
+      <a href="removal-costs-crawley.html">Costs Guide</a>
+      <a href="blog-removal-costs-crawley-2025.html">Blog</a>
+      <a href="#quote-form" class="nav-cta">Get Free Quotes</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<!-- HERO -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="house-removals-crawley.html">House Removals</a>
+  <a href="man-with-a-van-crawley.html">Man With a Van</a>
+  <a href="office-removals-crawley.html">Office Removals</a>
+  <a href="removal-costs-crawley.html">Costs Guide</a>
+  <a href="blog-removal-costs-crawley-2025.html">Blog</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="#quote-form" class="mob-cta">Get Free Quotes</a>
+</div>
+
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content">
+      <p class="hero-tagline">Compare. Move. Save.</p>
       <span class="hero-label">Crawley &amp; West Sussex</span>
       <h1>Moving house? Get <em>free quotes</em> from trusted local removal companies.</h1>
-      <p class="hero-sub">Tell us about your move and we'll connect you with reliable removal companies in Crawley — no pushy salespeople, no hidden fees, no obligation.</p>
+      <p class="hero-sub">Tell us about your move and we will connect you with reliable removal companies in Crawley. No pushy salespeople, no hidden fees, no obligation.</p>
       <div class="trust-row">
         <div class="trust-item">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <circle cx="8" cy="8" r="8" fill="#1B8CA6" opacity="0.25"/>
-            <path d="M5 8l2 2 4-4" stroke="#7ECFE0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="8" cy="8" r="8" fill="#E8830A" opacity="0.25"/>
+            <path d="M5 8l2 2 4-4" stroke="#F5A94A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           100% free, no obligation
         </div>
         <div class="trust-item">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <circle cx="8" cy="8" r="8" fill="#1B8CA6" opacity="0.25"/>
-            <path d="M5 8l2 2 4-4" stroke="#7ECFE0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="8" cy="8" r="8" fill="#E8830A" opacity="0.25"/>
+            <path d="M5 8l2 2 4-4" stroke="#F5A94A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           Local companies only
         </div>
         <div class="trust-item">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <circle cx="8" cy="8" r="8" fill="#1B8CA6" opacity="0.25"/>
-            <path d="M5 8l2 2 4-4" stroke="#7ECFE0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="8" cy="8" r="8" fill="#E8830A" opacity="0.25"/>
+            <path d="M5 8l2 2 4-4" stroke="#F5A94A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           Quotes within 24 hours
         </div>
       </div>
     </div>
 
-    <!-- FORM CARD -->
     <div class="form-card" id="quote-form">
       <h2>Get your free removal quotes</h2>
       <p>Takes less than 2 minutes. No payment details needed.</p>
-
       <form id="quoteForm" action="https://formspree.io/f/mjgdqoeg" method="POST">
         <div class="form-group">
           <label for="name">Your name</label>
           <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name">
         </div>
-
         <div class="form-row">
           <div class="form-group">
             <label for="phone">Phone number</label>
@@ -544,7 +583,6 @@
             <input type="email" id="email" name="email" placeholder="jane@email.com" required autocomplete="email">
           </div>
         </div>
-
         <div class="form-row">
           <div class="form-group">
             <label for="from_postcode">Moving from (postcode)</label>
@@ -555,7 +593,6 @@
             <input type="text" id="to_postcode" name="to_postcode" placeholder="BN1 1AA" required>
           </div>
         </div>
-
         <div class="form-row">
           <div class="form-group">
             <label for="property_size">Property size</label>
@@ -583,20 +620,13 @@
             <input type="date" id="move_date" name="move_date" style="display:none; margin-top:8px;" min="">
           </div>
         </div>
-
         <button type="submit" class="btn-submit">Get My Free Quotes &rarr;</button>
-        <p class="form-note">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M6 1a3.5 3.5 0 100 5.5M6 6.5V11M4 9h4" stroke="#637384" stroke-width="1.2" stroke-linecap="round"/>
-          </svg>
-          Your details are only shared with removal companies we trust. We never sell your data.
-        </p>
+        <p class="form-note">Your details are only shared with removal companies we trust. We never sell your data.</p>
       </form>
-
       <div class="success-card" id="successCard">
         <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
-          <circle cx="26" cy="26" r="26" fill="#E8F4F8"/>
-          <path d="M16 26l7 7 13-14" stroke="#1B8CA6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="26" cy="26" r="26" fill="#FEF3E2"/>
+          <path d="M16 26l7 7 13-14" stroke="#E8830A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <h3>Your request is in.</h3>
         <p>Local removal companies will be in touch within 24 hours with their quotes. Check your email and phone — including your spam folder just in case.</p>
@@ -605,7 +635,6 @@
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
 <section class="section">
   <div class="section-inner">
     <p class="section-label">Simple process</p>
@@ -615,12 +644,12 @@
       <div class="step">
         <div class="step-number">1</div>
         <h3>Fill in your details</h3>
-        <p>Tell us where you're moving from, where you're going, and when you need to move. It takes under two minutes and there's no commitment required.</p>
+        <p>Tell us where you are moving from, where you are going, and when you need to move. It takes under two minutes and there is no commitment required.</p>
       </div>
       <div class="step">
         <div class="step-number">2</div>
         <h3>We contact local companies</h3>
-        <p>Your request goes straight to trusted removal companies covering Crawley and West Sussex. These are local operators — not national call centres.</p>
+        <p>Your request goes straight to trusted removal companies covering Crawley and West Sussex. These are local operators, not national call centres.</p>
       </div>
       <div class="step">
         <div class="step-number">3</div>
@@ -631,56 +660,105 @@
   </div>
 </section>
 
-<!-- WHY US -->
 <section class="why-section">
   <div class="why-inner">
     <p class="section-label">Why use us</p>
-    <h2 class="section-title">You're in good hands</h2>
-    <p class="section-sub">We connect you with removal companies who actually know Crawley — not whoever happens to be on the rota at a national directory.</p>
+    <h2 class="section-title">You are in good hands</h2>
+    <p class="section-sub">We connect you with removal companies who actually know Crawley, not whoever happens to be on the rota at a national directory.</p>
     <div class="why-grid">
       <div class="why-card">
         <div class="why-icon">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path d="M11 2L3 6v6c0 4.4 3.4 8.5 8 9.5 4.6-1 8-5.1 8-9.5V6L11 2z" stroke="#7ECFE0" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M11 2L3 6v6c0 4.4 3.4 8.5 8 9.5 4.6-1 8-5.1 8-9.5V6L11 2z" stroke="#F5A94A" stroke-width="1.5" stroke-linejoin="round"/>
           </svg>
         </div>
         <h3>Genuinely local companies</h3>
-        <p>Every removal company we work with is based in or around Crawley. They know the area, they know the roads, and they're not sending a crew from 60 miles away.</p>
+        <p>Every removal company we work with is based in or around Crawley. They know the area, they know the roads, and they are not sending a crew from 60 miles away.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <circle cx="11" cy="11" r="9" stroke="#7ECFE0" stroke-width="1.5"/>
-            <path d="M11 6v5l3 3" stroke="#7ECFE0" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="11" cy="11" r="9" stroke="#F5A94A" stroke-width="1.5"/>
+            <path d="M11 6v5l3 3" stroke="#F5A94A" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </div>
         <h3>Quotes within 24 hours</h3>
-        <p>Most people hear back the same day. Removal companies are given your details directly — there's no back-and-forth through a middleman slowing things down.</p>
+        <p>Most people hear back the same day. Removal companies are given your details directly. There is no back and forth through a middleman slowing things down.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path d="M4 11l4 4 10-8" stroke="#7ECFE0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 11l4 4 10-8" stroke="#F5A94A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <h3>No cost, no obligation</h3>
-        <p>Getting quotes through UK Move Quotes is completely free. You're under no obligation to book with anyone, and we never charge homeowners a penny.</p>
+        <p>Getting quotes through UK Move Quotes is completely free. You are under no obligation to book with anyone, and we never charge homeowners a penny.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <rect x="3" y="5" width="16" height="12" rx="2" stroke="#7ECFE0" stroke-width="1.5"/>
-            <path d="M3 9h16" stroke="#7ECFE0" stroke-width="1.5"/>
+            <rect x="3" y="5" width="16" height="12" rx="2" stroke="#F5A94A" stroke-width="1.5"/>
+            <path d="M3 9h16" stroke="#F5A94A" stroke-width="1.5"/>
           </svg>
         </div>
         <h3>Your data stays private</h3>
-        <p>Your details are only shared with removal companies — never sold to third-party marketers or added to mailing lists. We take privacy seriously.</p>
+        <p>Your details are only shared with removal companies. Never sold to third-party marketers or added to mailing lists. We take privacy seriously.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- AREAS WE COVER -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <p class="section-label">Common questions</p>
+    <h2 class="section-title">Things people ask before they get quotes</h2>
+    <div style="margin-top: 40px;">
+      <div class="faq-item">
+        <div class="faq-q">
+          Is it really free to use?
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="#0B2545" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="faq-a">Yes, completely. Getting quotes through UK Move Quotes costs you nothing. We work with the removal companies, who pay us when we send them a lead. You never pay us a penny at any point.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          How quickly will removal companies get in touch?
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="#0B2545" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="faq-a">Most people hear back within a few hours. We pass your details to removal companies immediately after you submit the form. During busy periods or if you submit late in the evening you may hear back the following morning instead.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          How many companies will contact me?
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="#0B2545" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="faq-a">Typically between one and three local removal companies. We do not flood your inbox with calls from dozens of companies. The idea is to give you a realistic comparison, not to overwhelm you.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          Do I have to commit to anything by requesting quotes?
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="#0B2545" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="faq-a">Not at all. Requesting quotes is completely non-committal. You are under no obligation to book with any company that contacts you. If none of the quotes work for you, that is fine.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          What areas do you cover?
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="#0B2545" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="faq-a">We currently cover Crawley and the surrounding towns in West Sussex and Surrey including Horley, Horsham, East Grinstead, Redhill, Reigate, Burgess Hill, and Haywards Heath. We are adding more locations regularly.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          What if I do not know my move date yet?
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="#0B2545" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="faq-a">That is completely fine. Select the not decided yet option on the form. Removal companies are used to dealing with enquiries at an early stage and can still give you a rough idea of pricing based on your property size and postcodes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="areas-section">
   <div class="areas-inner">
     <p class="section-label">Coverage</p>
@@ -707,82 +785,101 @@
   </div>
 </section>
 
-<!-- CTA BAND -->
+<section class="blog-section">
+  <div class="blog-inner">
+    <p class="section-label">Helpful guides</p>
+    <h2 class="section-title">Moving advice for Crawley residents</h2>
+    <div class="blog-grid">
+      <a href="blog-removal-costs-crawley-2025.html" class="blog-card">
+        <p class="blog-tag">Costs and pricing</p>
+        <h3>How much do removals cost in Crawley in 2025?</h3>
+        <p>A straight talking guide to what you can expect to pay for a house move in Crawley, from a one bed flat to a five bedroom home.</p>
+      </a>
+      <a href="blog-removal-costs-crawley-2025.html" class="blog-card">
+        <p class="blog-tag">Planning your move</p>
+        <h3>When is the best time to move house in West Sussex?</h3>
+        <p>Timing your move can make a real difference to cost and availability. Here is what we know about how demand shifts across the year in Crawley.</p>
+      </a>
+      <a href="blog-removal-costs-crawley-2025.html" class="blog-card">
+        <p class="blog-tag">Getting organised</p>
+        <h3>Moving house checklist for Crawley homeowners</h3>
+        <p>A practical checklist covering everything you need to sort before, during, and after your move day in and around Crawley.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section class="cta-band">
   <h2>Ready to get your removal quotes?</h2>
-  <p>It takes two minutes and it's completely free. Local companies will be in touch within 24 hours.</p>
+  <p>It takes two minutes and it is completely free. Local companies will be in touch within 24 hours.</p>
   <a href="#quote-form" class="cta-btn">Get Free Quotes Now</a>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <a href="#" class="footer-logo">UKMove<span>Quotes</span></a>
+  <a href="/" class="footer-logo">UKMove<span>Quotes</span></a>
   <p>Connecting homeowners with trusted removal companies across Crawley and West Sussex.</p>
-  <p>hello@ukmovequotes.co.uk</p>
+  <p>enquiries@ukmovequotes.co.uk</p>
   <div class="footer-links">
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms of Use</a>
-    <a href="#">Contact</a>
+    <a href="house-removals-crawley.html">House Removals</a>
+    <a href="man-with-a-van-crawley.html">Man With a Van</a>
+    <a href="office-removals-crawley.html">Office Removals</a>
+    <a href="removal-costs-crawley.html">Costs Guide</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
   </div>
   <p style="margin-top: 24px;">&copy; 2025 UK Move Quotes. All rights reserved.</p>
 </footer>
 
 <script>
-  // Form submission handler
-  const form = document.getElementById('quoteForm');
-  const successCard = document.getElementById('successCard');
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function() {
+    this.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  document.querySelectorAll('.mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
 
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Form
+  const form = document.getElementById('quoteForm');
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
     const btn = form.querySelector('.btn-submit');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-
+    btn.textContent = 'Sending...'; btn.disabled = true;
     try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (res.ok) {
-        form.style.display = 'none';
-        successCard.style.display = 'block';
-      } else {
-        btn.textContent = 'Something went wrong — please try again';
-        btn.disabled = false;
-      }
-    } catch {
-      btn.textContent = 'Something went wrong — please try again';
-      btn.disabled = false;
-    }
+      const res = await fetch(form.action, { method:'POST', body: new FormData(form), headers:{'Accept':'application/json'} });
+      if (res.ok) { form.style.display='none'; document.getElementById('successCard').style.display='block'; }
+      else { btn.textContent = 'Something went wrong — please try again'; btn.disabled = false; }
+    } catch { btn.textContent = 'Something went wrong — please try again'; btn.disabled = false; }
   });
 
-  // Toggle date picker visibility
   function toggleDatePicker(select) {
-    const datePicker = document.getElementById('move_date');
-    if (select.value === 'pick') {
-      datePicker.style.display = 'block';
-      datePicker.required = true;
-    } else {
-      datePicker.style.display = 'none';
-      datePicker.required = false;
-      datePicker.value = '';
-    }
+    const d = document.getElementById('move_date');
+    if (select.value === 'pick') { d.style.display = 'block'; d.required = true; }
+    else { d.style.display = 'none'; d.required = false; d.value = ''; }
   }
+  document.getElementById('move_date').setAttribute('min', new Date().toISOString().split('T')[0]);
 
-  // Set min date to today
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('move_date').setAttribute('min', today);
-
-  // Smooth scroll for anchor links
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      const t = document.querySelector(this.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior:'smooth', block:'start' }); }
     });
   });
 </script>
