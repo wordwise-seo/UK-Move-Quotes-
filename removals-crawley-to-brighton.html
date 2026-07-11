@@ -59,7 +59,7 @@
   <div class="page-hero-inner">
     <span class="page-label">Crawley to Brighton</span>
     <h1>Removals from Crawley to Brighton. <em>Local knowledge, fair prices.</em></h1>
-    <p class="page-hero-sub">Crawley to Brighton is around 25 miles down the A23 — a straightforward route for local removal companies who know both ends of the journey well. Get free quotes and compare prices before you book.</p>
+    <p class="page-hero-sub">Crawley to Brighton is around 25 miles down the A23, a straightforward route for local removal companies who know both ends of the journey well. Get free quotes and compare prices before you book.</p>
   </div>
 </section>
 <section class="section" style="background:var(--white);">
@@ -217,8 +217,8 @@
     try {
       const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
+      else { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
+    } catch { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
   });
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {

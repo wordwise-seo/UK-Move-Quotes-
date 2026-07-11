@@ -71,17 +71,17 @@
         <table class="price-table" style="margin-top:20px;">
           <thead><tr><th>Property size</th><th>Typical range</th></tr></thead>
           <tbody>
-            <tr><td>Man with a van — studio or 1 bed</td><td>£120 to £250</td></tr>
+            <tr><td>Man with a van, studio or 1 bed</td><td>£120 to £250</td></tr>
             <tr><td>2 bed property</td><td>£350 to £650</td></tr>
             <tr><td>3 bed house</td><td>£550 to £950</td></tr>
             <tr><td>4 bed house</td><td>£800 to £1,400</td></tr>
             <tr><td>5 bed or larger</td><td>£1,200 upwards</td></tr>
-            <tr><td>Man with a van — hourly rate</td><td>£50 to £85 per hour</td></tr>
+            <tr><td>Man with a van, hourly rate</td><td>£50 to £85 per hour</td></tr>
           </tbody>
         </table>
         <h2 style="margin-top:36px;">Getting the best price in Haywards Heath</h2>
         <p>Comparing quotes from at least two or three local companies is the most effective approach. Prices for identical jobs can vary significantly between operators. Getting multiple quotes through UK Move Quotes takes under two minutes and means companies compete for your business rather than you chasing them individually.</p>
-        <p>Mid-week moves are often slightly cheaper than Fridays and weekends. End of month dates are the most in-demand and fill up fastest — if your completion falls at the end of the month, book your removal company as early as possible.</p>
+        <p>Mid-week moves are often slightly cheaper than Fridays and weekends. End of month dates are the most in demand and fill up fastest, so if your completion falls at the end of the month, book your removal company as early as possible.</p>
       </div>
       <div><div class="inline-form" id="quote-form">
           <h2 style="font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:6px;">Get your free quotes</h2>
@@ -200,8 +200,8 @@
     try {
       const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
+      else { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
+    } catch { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
   });
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
