@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://ukmovequotes.co.uk/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/about.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/blog-best-time-to-move-west-sussex.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/blog-changing-address-when-moving-house.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
@@ -37,6 +38,8 @@
   <url><loc>https://ukmovequotes.co.uk/house-removals-worthing.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/international-removals-crawley.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ukmovequotes.co.uk/international-removals-horsham.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ukmovequotes.co.uk/privacy.html</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/international-removals-west-sussex.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/man-with-a-van-brighton.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/man-with-a-van-burgess-hill.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
@@ -79,6 +82,7 @@
   <url><loc>https://ukmovequotes.co.uk/removal-costs-haywards-heath.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/removal-costs-horsham.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/removal-costs-lancing.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ukmovequotes.co.uk/removal-costs-leatherhead.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/removal-costs-lewes.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/removal-costs-maidstone.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/removal-costs-oxted.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
@@ -91,6 +95,7 @@
   <url><loc>https://ukmovequotes.co.uk/removal-costs-worthing.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/removal-faqs-crawley.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/removals-ansty.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ukmovequotes.co.uk/removals-ashtead.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/removals-banstead.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/removals-billingshurst.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/removals-brighton-to-crawley.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
@@ -163,8 +168,10 @@
   <url><loc>https://ukmovequotes.co.uk/storage-between-house-moves.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/storage-brighton.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/storage-crawley.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ukmovequotes.co.uk/storage-guildford.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/storage-horsham.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/storage-surrey.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ukmovequotes.co.uk/storage-tunbridge-wells.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/storage-west-sussex.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://ukmovequotes.co.uk/temporary-storage-west-sussex.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
 </urlset>
