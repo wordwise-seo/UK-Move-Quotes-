@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Moving between Horsham and Crawley? Get free quotes from local removal companies who cover both towns. Just 12 miles apart — fast, affordable, no obligation.">
+<meta name="description" content="Moving between Horsham and Crawley? Get free quotes from local removal companies who cover both towns. Just 12 miles apart, fast, affordable, no obligation.">
 <title>Removals Horsham to Crawley | Free Quotes | UK Move Quotes</title>
 <link rel="canonical" href="https://ukmovequotes.co.uk/removals-horsham-to-crawley.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,7 +64,7 @@
   <div class="page-hero-inner">
     <span class="page-label">Horsham to Crawley</span>
     <h1>Removals between Horsham and Crawley. <em>Just 12 miles, sorted in a day.</em></h1>
-    <p class="page-hero-sub">Horsham and Crawley are 12 miles apart on the A264 — one of the most common local removal routes in West Sussex. Get free quotes from companies who cover both towns every week.</p>
+    <p class="page-hero-sub">Horsham and Crawley are 12 miles apart on the A264, one of the most common local removal routes in West Sussex. Get free quotes from companies who cover both towns every week.</p>
   </div>
 </section>
 <section class="section" style="background:var(--white);">
@@ -72,7 +72,7 @@
     <div class="two-col">
       <div class="two-col-text">
         <h2>Moving between Horsham and Crawley</h2>
-        <p>Horsham and Crawley are just 12 miles apart — close enough that most removal companies covering West Sussex handle both towns regularly. It is one of the most common local moves in the county and a job that an experienced local company can complete comfortably within a day for most property sizes.</p>
+        <p>Horsham and Crawley are just 12 miles apart, close enough that most removal companies covering West Sussex handle both towns regularly. It is one of the most common local moves in the county and a job that an experienced local company can complete comfortably within a day for most property sizes.</p>
         <p>The route between the two is straightforward. The A264 connects them directly and the journey typically takes between 20 and 35 minutes depending on traffic. There are no major access complications between the two towns and most residential streets in both Horsham and Crawley have reasonable parking for a removal vehicle.</p>
         <p>Because the distance is short, a Horsham to Crawley move or vice versa is often one of the more affordable jobs for a full removal company. For smaller moves a man with a van is likely all you need and will cost even less.</p>
         <h2>Typical costs for a Horsham to Crawley removal</h2>
@@ -131,9 +131,25 @@
                     <option value="pick">I have a date</option>
                   </select>
                 </div>
-                <input type="date" id="move_date" name="move_date" style="display:none;margin-top:8px;">
+                <input type="date" id="move_date" name="move_date" placeholder="Select your move date" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
               </div>
             </div>
+            <div class="form-group">
+              <label for="referral_source">How did you find us?</label>
+              <div class="select-wrap">
+                <select id="referral_source" name="referral_source" onchange="toggleReferral(this)">
+                  <option value="" disabled selected>Select</option>
+                  <option value="Google search">Google search</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Recommended by a friend or family">Recommended by a friend or family</option>
+                  <option value="Recommended by an estate agent">Recommended by an estate agent</option>
+                  <option value="Local newspaper or press">Local newspaper or press</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <input type="text" id="referral_name" name="referral_name" placeholder="Who recommended you? (optional)" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
+            </div>
+
             <button type="submit" class="btn-submit">Get My Free Quotes &rarr;</button>
             <p class="form-note">Free to use. Your details go to removal companies only.</p>
           </form>
@@ -214,6 +230,12 @@
     if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
     else { d.style.display = 'none'; d.required = false; d.value = ''; }
   }
+  function toggleReferral(sel) {
+    const r = document.getElementById('referral_name');
+    if (!r) return;
+    if (sel.value === 'Recommended by a friend or family' || sel.value === 'Recommended by an estate agent') { r.style.display = 'block'; }
+    else { r.style.display = 'none'; r.value = ''; }
+  }
   const md = document.getElementById('move_date');
   if (md) md.setAttribute('min', new Date().toISOString().split('T')[0]);
   const form = document.getElementById('quoteForm');
@@ -224,8 +246,8 @@
     try {
       const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
+      else { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
+    } catch { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
   });
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {

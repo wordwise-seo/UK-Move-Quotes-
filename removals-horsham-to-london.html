@@ -64,7 +64,7 @@
   <div class="page-hero-inner">
     <span class="page-label">Horsham to London</span>
     <h1>Removals from Horsham to London. <em>Free quotes, no stress.</em></h1>
-    <p class="page-hero-sub">Horsham to London is around 40 miles north — a familiar route for removal companies covering West Sussex. Get free quotes from companies who know the journey and the London end inside out.</p>
+    <p class="page-hero-sub">Horsham to London is around 40 miles north, a familiar route for removal companies covering West Sussex. Get free quotes from companies who know the journey and the London end inside out.</p>
   </div>
 </section>
 <section class="section" style="background:var(--white);">
@@ -72,7 +72,7 @@
     <div class="two-col">
       <div class="two-col-text">
         <h2>Moving from Horsham to London</h2>
-        <p>Horsham to Central London is around 40 miles — slightly further than the Crawley to London route but still a well travelled road for removal companies covering West Sussex. The journey north on the A24 or A23 via Crawley is straightforward outside of peak hours.</p>
+        <p>Horsham to Central London is around 40 miles, slightly further than the Crawley to London route but still a well travelled road for removal companies covering West Sussex. The journey north on the A24 or A23 via Crawley is straightforward outside of peak hours.</p>
         <p>The same London-specific considerations apply here as with any move into the capital. Parking restrictions, ULEZ charges, and the general complexity of loading or unloading a removal lorry in a busy London street all need planning in advance. A removal company who has done this route before will handle most of that automatically.</p>
         <p>ULEZ applies to most of Greater London and most older removal vehicles will incur a daily charge. Ask your removal company whether ULEZ is included in their quote or added separately so you know exactly what you are paying before move day.</p>
         <h2>Cost of a Horsham to London removal</h2>
@@ -131,9 +131,25 @@
                     <option value="pick">I have a date</option>
                   </select>
                 </div>
-                <input type="date" id="move_date" name="move_date" style="display:none;margin-top:8px;">
+                <input type="date" id="move_date" name="move_date" placeholder="Select your move date" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
               </div>
             </div>
+            <div class="form-group">
+              <label for="referral_source">How did you find us?</label>
+              <div class="select-wrap">
+                <select id="referral_source" name="referral_source" onchange="toggleReferral(this)">
+                  <option value="" disabled selected>Select</option>
+                  <option value="Google search">Google search</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Recommended by a friend or family">Recommended by a friend or family</option>
+                  <option value="Recommended by an estate agent">Recommended by an estate agent</option>
+                  <option value="Local newspaper or press">Local newspaper or press</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <input type="text" id="referral_name" name="referral_name" placeholder="Who recommended you? (optional)" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
+            </div>
+
             <button type="submit" class="btn-submit">Get My Free Quotes &rarr;</button>
             <p class="form-note">Free to use. Your details go to removal companies only.</p>
           </form>
@@ -160,7 +176,7 @@
       <div class="card">
         <div class="card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M10 2C7.2 2 5 4.2 5 7c0 4 5 11 5 11s5-7 5-11c0-2.8-2.2-5-5-5z" stroke="#E8830A" stroke-width="1.5"/><circle cx="10" cy="7" r="2" stroke="#E8830A" stroke-width="1.5"/></svg></div>
         <h3>Sort London parking early</h3>
-        <p>Many London streets require a parking bay suspension for a removal lorry arranged with the local council at least a week in advance. Your removal company should advise on this — ask specifically when you book.</p>
+        <p>Many London streets require a parking bay suspension for a removal lorry arranged with the local council at least a week in advance. Your removal company should advise on this, ask specifically when you book.</p>
       </div>
       <div class="card">
         <div class="card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="5" width="16" height="12" rx="2" stroke="#E8830A" stroke-width="1.5"/><path d="M3 9h16" stroke="#E8830A" stroke-width="1.5"/></svg></div>
@@ -214,6 +230,12 @@
     if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
     else { d.style.display = 'none'; d.required = false; d.value = ''; }
   }
+  function toggleReferral(sel) {
+    const r = document.getElementById('referral_name');
+    if (!r) return;
+    if (sel.value === 'Recommended by a friend or family' || sel.value === 'Recommended by an estate agent') { r.style.display = 'block'; }
+    else { r.style.display = 'none'; r.value = ''; }
+  }
   const md = document.getElementById('move_date');
   if (md) md.setAttribute('min', new Date().toISOString().split('T')[0]);
   const form = document.getElementById('quoteForm');
@@ -224,8 +246,8 @@
     try {
       const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
+      else { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
+    } catch { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
   });
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {

@@ -71,7 +71,7 @@
         <p>UK Move Quotes connects you with removal companies who regularly work in Haywards Heath and the surrounding RH16 and RH17 postcodes. Fill in one short form and local companies will come back to you with their quotes within 24 hours. You compare, choose, and book directly.</p>
         <p>Haywards Heath sits between Crawley to the north and Brighton to the south, which means most established removal companies covering West Sussex will cover the area. That gives you a good range of options and competitive pricing.</p>
         <h2>What affects removal costs in Haywards Heath?</h2>
-        <p>Property size and distance are the main factors. Haywards Heath has a good mix of property types — modern town centre developments, Victorian terraces, and larger detached homes in the surrounding villages of Lindfield, Ardingly, and Cuckfield. Access is generally straightforward compared to central Brighton or Crawley town centre.</p>
+        <p>Property size and distance are the main factors. Haywards Heath has a good mix of property types, modern town centre developments, Victorian terraces, and larger detached homes in the surrounding villages of Lindfield, Ardingly, and Cuckfield. Access is generally straightforward compared to central Brighton or Crawley town centre.</p>
         <p>Getting quotes from two or three local companies gives you the best picture of what a fair price looks like for your move. Fill in the form and local companies will be in touch within 24 hours.</p>
       </div>
       <div><div class="inline-form" id="quote-form">
@@ -126,9 +126,25 @@
                     <option value="pick">I have a date</option>
                   </select>
                 </div>
-                <input type="date" id="move_date" name="move_date" style="display:none;margin-top:8px;">
+                <input type="date" id="move_date" name="move_date" placeholder="Select your move date" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
               </div>
             </div>
+            <div class="form-group">
+              <label for="referral_source">How did you find us?</label>
+              <div class="select-wrap">
+                <select id="referral_source" name="referral_source" onchange="toggleReferral(this)">
+                  <option value="" disabled selected>Select</option>
+                  <option value="Google search">Google search</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Recommended by a friend or family">Recommended by a friend or family</option>
+                  <option value="Recommended by an estate agent">Recommended by an estate agent</option>
+                  <option value="Local newspaper or press">Local newspaper or press</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <input type="text" id="referral_name" name="referral_name" placeholder="Who recommended you? (optional)" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
+            </div>
+
             <button type="submit" class="btn-submit">Get Free Quotes &rarr;</button>
             <p class="form-note">Free to use. Your details go to removal companies only.</p>
           </form>
@@ -199,6 +215,12 @@
     if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
     else { d.style.display = 'none'; d.required = false; d.value = ''; }
   }
+  function toggleReferral(sel) {
+    const r = document.getElementById('referral_name');
+    if (!r) return;
+    if (sel.value === 'Recommended by a friend or family' || sel.value === 'Recommended by an estate agent') { r.style.display = 'block'; }
+    else { r.style.display = 'none'; r.value = ''; }
+  }
   const md = document.getElementById('move_date');
   if (md) md.setAttribute('min', new Date().toISOString().split('T')[0]);
   const form = document.getElementById('quoteForm');
@@ -209,8 +231,8 @@
     try {
       const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
+      else { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
+    } catch { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
   });
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {

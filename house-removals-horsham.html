@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="House removals in Horsham, West Sussex — free quotes from trusted local removal companies. Compare prices, no obligation, quotes within 24 hours.">
+<meta name="description" content="House removals in Horsham, West Sussex, free quotes from trusted local removal companies. Compare prices, no obligation, quotes within 24 hours.">
 <title>House Removals Horsham | Free Quotes | UK Move Quotes</title>
 <link rel="canonical" href="https://ukmovequotes.co.uk/house-removals-horsham.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,10 +71,10 @@
   <div class="section-inner">
     <div class="two-col">
       <div class="two-col-text">
-        <h2>House removals in Horsham — what to expect</h2>
-        <p>Horsham has a varied housing stock — from Victorian terraces in the town centre to larger detached properties in the surrounding villages like Warnham, Roffey, and Broadbridge Heath. Each type of property comes with its own removal considerations and a local company will have seen most of them before.</p>
+        <h2>House removals in Horsham: what to expect</h2>
+        <p>Horsham has a varied housing stock, from Victorian terraces in the town centre to larger detached properties in the surrounding villages like Warnham, Roffey, and Broadbridge Heath. Each type of property comes with its own removal considerations and a local company will have seen most of them before.</p>
         <p>Properties in the older parts of Horsham town centre can have narrow access or limited parking for a large removal lorry. Villages surrounding Horsham often have single track lanes and low bridges that affect route planning. A removal company who knows the area navigates these things without it becoming your problem on move day.</p>
-        <p>When you request quotes through UK Move Quotes you hear from companies who are based in and around West Sussex. They are not quoting blind — they know the postcodes, they know the roads, and they can give you an accurate price rather than an estimate that changes when they arrive.</p>
+        <p>When you request quotes through UK Move Quotes you hear from companies who are based in and around West Sussex. They are not quoting blind, they know the postcodes, they know the roads, and they can give you an accurate price rather than an estimate that changes when they arrive.</p>
         <h2>When to book your Horsham removal company</h2>
         <p>Four to six weeks ahead is comfortable for most moves. If you are moving at the end of the month, on a Friday, or during the summer peak the best companies fill up faster. Getting your quotes in early means you have more choice and a better chance of securing your preferred date.</p>
       </div>
@@ -131,9 +131,25 @@
                     <option value="pick">I have a date</option>
                   </select>
                 </div>
-                <input type="date" id="move_date" name="move_date" style="display:none;margin-top:8px;">
+                <input type="date" id="move_date" name="move_date" placeholder="Select your move date" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
               </div>
             </div>
+            <div class="form-group">
+              <label for="referral_source">How did you find us?</label>
+              <div class="select-wrap">
+                <select id="referral_source" name="referral_source" onchange="toggleReferral(this)">
+                  <option value="" disabled selected>Select</option>
+                  <option value="Google search">Google search</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Recommended by a friend or family">Recommended by a friend or family</option>
+                  <option value="Recommended by an estate agent">Recommended by an estate agent</option>
+                  <option value="Local newspaper or press">Local newspaper or press</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <input type="text" id="referral_name" name="referral_name" placeholder="Who recommended you? (optional)" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
+            </div>
+
             <button type="submit" class="btn-submit">Get My Free Quotes &rarr;</button>
             <p class="form-note">Free to use. Your details go to removal companies only.</p>
           </form>
@@ -151,7 +167,7 @@
   <div class="section-inner">
     <div style="max-width:720px;">
       <p class="section-label">Common questions</p>
-      <h2 class="section-title">House removals in Horsham — what people ask</h2>
+      <h2 class="section-title">House removals in Horsham: what people ask</h2>
       <div style="margin-top:40px;">
         <div class="faq-item">
           <div class="faq-q" style="color:var(--white);">How much does a house removal in Horsham cost?<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 6l5 5 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -213,6 +229,12 @@
     if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
     else { d.style.display = 'none'; d.required = false; d.value = ''; }
   }
+  function toggleReferral(sel) {
+    const r = document.getElementById('referral_name');
+    if (!r) return;
+    if (sel.value === 'Recommended by a friend or family' || sel.value === 'Recommended by an estate agent') { r.style.display = 'block'; }
+    else { r.style.display = 'none'; r.value = ''; }
+  }
   const md = document.getElementById('move_date');
   if (md) md.setAttribute('min', new Date().toISOString().split('T')[0]);
   const form = document.getElementById('quoteForm');
@@ -223,8 +245,8 @@
     try {
       const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
+      else { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
+    } catch { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
   });
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {

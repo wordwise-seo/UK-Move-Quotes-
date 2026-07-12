@@ -67,10 +67,10 @@
     <div class="two-col">
       <div class="two-col-text">
         <h2>Finding a reliable removal company in Brighton</h2>
-        <p>Brighton has one of the most active housing markets on the South Coast. With a large student population, a thriving rental market, and constant movement in and out of the city, removal companies in Brighton are kept extremely busy — particularly during the summer months and at the end of each academic year.</p>
+        <p>Brighton has one of the most active housing markets on the South Coast. With a large student population, a thriving rental market, and constant movement in and out of the city, removal companies in Brighton are kept extremely busy, particularly during the summer months and at the end of each academic year.</p>
         <p>UK Move Quotes takes the search off your hands. Fill in one short form and trusted local removal companies covering Brighton, Hove, and the surrounding BN1 to BN3 postcodes will come back to you with their quotes within 24 hours. You compare, choose, and book directly with the company that suits you best.</p>
         <p>Brighton presents some unique access challenges that local removal companies know well. Many of the most sought-after streets in central Brighton and Hove have controlled parking zones, narrow access, and converted Victorian properties with steep staircases. A removal company who works in Brighton regularly will plan around these things automatically.</p>
-        <h2>Parking and access in Brighton — what to know</h2>
+        <h2>Parking and access in Brighton: what to know</h2>
         <p>Parking for a removal lorry in Brighton is one of the most common complications on move day. Many streets in Brighton and Hove require a suspension of the parking bay which needs to be arranged with Brighton and Hove City Council at least five working days in advance. Your removal company should advise on this but it is worth asking specifically when you discuss the move with them.</p>
         <p>If you are moving into a flat in a converted Victorian terrace, mention the staircase situation when you request your quote. Tight staircases and low ceilings are common in Brighton's period properties and your removal company may need to plan for this with specialist equipment or additional crew.</p>
         <p>For <a href="removals-crawley-to-brighton.html">moves between Crawley and Brighton</a> or from further afield, our route pages have more detail on what to expect.</p>
@@ -127,9 +127,25 @@
                     <option value="pick">I have a date</option>
                   </select>
                 </div>
-                <input type="date" id="move_date" name="move_date" style="display:none;margin-top:8px;">
+                <input type="date" id="move_date" name="move_date" placeholder="Select your move date" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
               </div>
             </div>
+            <div class="form-group">
+              <label for="referral_source">How did you find us?</label>
+              <div class="select-wrap">
+                <select id="referral_source" name="referral_source" onchange="toggleReferral(this)">
+                  <option value="" disabled selected>Select</option>
+                  <option value="Google search">Google search</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Recommended by a friend or family">Recommended by a friend or family</option>
+                  <option value="Recommended by an estate agent">Recommended by an estate agent</option>
+                  <option value="Local newspaper or press">Local newspaper or press</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <input type="text" id="referral_name" name="referral_name" placeholder="Who recommended you? (optional)" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
+            </div>
+
             <button type="submit" class="btn-submit">Get Free Quotes &rarr;</button>
             <p class="form-note">Free to use. Your details go to removal companies only.</p>
           </form>
@@ -202,6 +218,12 @@
     if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
     else { d.style.display = 'none'; d.required = false; d.value = ''; }
   }
+  function toggleReferral(sel) {
+    const r = document.getElementById('referral_name');
+    if (!r) return;
+    if (sel.value === 'Recommended by a friend or family' || sel.value === 'Recommended by an estate agent') { r.style.display = 'block'; }
+    else { r.style.display = 'none'; r.value = ''; }
+  }
   const md = document.getElementById('move_date');
   if (md) md.setAttribute('min', new Date().toISOString().split('T')[0]);
   const form = document.getElementById('quoteForm');
@@ -212,8 +234,8 @@
     try {
       const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
+      else { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
+    } catch { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
   });
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {

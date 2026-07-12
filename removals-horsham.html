@@ -72,11 +72,11 @@
     <div class="two-col">
       <div class="two-col-text">
         <h2>Finding a reliable removal company in Horsham</h2>
-        <p>Horsham is a busy market town with a thriving housing market and a steady flow of people moving in and out. Finding a removal company you can trust should not be the stressful part of the process — but with so many options and varying levels of quality it can be hard to know where to start.</p>
+        <p>Horsham is a busy market town with a thriving housing market and a steady flow of people moving in and out. Finding a removal company you can trust should not be the stressful part of the process, but with so many options and varying levels of quality it can be hard to know where to start.</p>
         <p>UK Move Quotes takes that search off your hands. You fill in one short form with your move details and local removal companies covering Horsham and the surrounding RH12 and RH13 postcodes get in touch directly with their quotes. You compare, you choose, you book. Simple.</p>
         <p>The companies we work with in Horsham are genuinely local. They know the town, they know the surrounding villages, and they are not sending a crew from the other side of the county. That local knowledge makes a real difference on move day when things need to go smoothly.</p>
         <h2>What affects removal costs in Horsham?</h2>
-        <p>Property size and distance are the biggest factors. A two bedroom flat moving locally within Horsham is a very different job to a four bedroom house heading to London or Brighton. Access at both properties matters too — tight lanes around some of the villages near Horsham can add time to a job that looks straightforward on paper.</p>
+        <p>Property size and distance are the biggest factors. A two bedroom flat moving locally within Horsham is a very different job to a four bedroom house heading to London or Brighton. Access at both properties matters too, tight lanes around some of the villages near Horsham can add time to a job that looks straightforward on paper.</p>
         <p>Getting quotes from two or three companies gives you a realistic picture of what a fair price looks like for your specific move. Fill in the form and local companies will be in touch within 24 hours.</p>
       </div>
       <div>
@@ -132,9 +132,25 @@
                     <option value="pick">I have a date</option>
                   </select>
                 </div>
-                <input type="date" id="move_date" name="move_date" style="display:none;margin-top:8px;">
+                <input type="date" id="move_date" name="move_date" placeholder="Select your move date" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
               </div>
             </div>
+            <div class="form-group">
+              <label for="referral_source">How did you find us?</label>
+              <div class="select-wrap">
+                <select id="referral_source" name="referral_source" onchange="toggleReferral(this)">
+                  <option value="" disabled selected>Select</option>
+                  <option value="Google search">Google search</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Recommended by a friend or family">Recommended by a friend or family</option>
+                  <option value="Recommended by an estate agent">Recommended by an estate agent</option>
+                  <option value="Local newspaper or press">Local newspaper or press</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <input type="text" id="referral_name" name="referral_name" placeholder="Who recommended you? (optional)" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
+            </div>
+
             <button type="submit" class="btn-submit">Get My Free Quotes &rarr;</button>
             <p class="form-note">Free to use. Your details go to removal companies only.</p>
           </form>
@@ -233,6 +249,12 @@
     if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
     else { d.style.display = 'none'; d.required = false; d.value = ''; }
   }
+  function toggleReferral(sel) {
+    const r = document.getElementById('referral_name');
+    if (!r) return;
+    if (sel.value === 'Recommended by a friend or family' || sel.value === 'Recommended by an estate agent') { r.style.display = 'block'; }
+    else { r.style.display = 'none'; r.value = ''; }
+  }
   const md = document.getElementById('move_date');
   if (md) md.setAttribute('min', new Date().toISOString().split('T')[0]);
   const form = document.getElementById('quoteForm');
@@ -243,8 +265,8 @@
     try {
       const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
+      else { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
+    } catch { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
   });
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {

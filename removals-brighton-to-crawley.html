@@ -59,7 +59,7 @@
   <div class="page-hero-inner">
     <span class="page-label">Brighton to Crawley</span>
     <h1>Removals from Brighton to Crawley. <em>Local knowledge, fair prices.</em></h1>
-    <p class="page-hero-sub">Brighton to Crawley is around 25 miles north on the A23 — a familiar route for removal companies covering East Sussex and West Sussex. Get free quotes and compare before you book.</p>
+    <p class="page-hero-sub">Brighton to Crawley is around 25 miles north on the A23, a familiar route for removal companies covering East Sussex and West Sussex. Get free quotes and compare before you book.</p>
   </div>
 </section>
 <section class="section" style="background:var(--white);">
@@ -69,7 +69,7 @@
         <h2>Moving from Brighton to Crawley</h2>
         <p>Brighton to Crawley is one of the most common relocation routes in the South East. Many people make this move for more space, better value housing, and strong transport links back into Brighton and London. Crawley offers considerably more property for the money compared to Brighton, and the A23 keeps the two towns well connected.</p>
         <p>The journey is around 25 miles and typically takes between 35 and 50 minutes depending on traffic. It is a straightforward route for removal companies covering this corridor and most established operators in either town will have done it many times before.</p>
-        <p>The loading end in Brighton often comes with the same access considerations as any Brighton move — parking suspensions if needed, staircase access in Victorian properties. The delivery end in Crawley is generally more straightforward with better parking and road access in most residential areas.</p>
+        <p>The loading end in Brighton often comes with the same access considerations as any Brighton move, parking suspensions if needed, staircase access in Victorian properties. The delivery end in Crawley is generally more straightforward with better parking and road access in most residential areas.</p>
         <h2>Cost of a Brighton to Crawley removal</h2>
         <p>Because the distance is relatively short, prices for Brighton to Crawley moves are usually towards the lower end of the scale. A two bedroom property can typically be moved for between £400 and £750. A three bedroom house usually falls between £600 and £1,100. Get quotes from a couple of local companies to see what your specific move comes to.</p>
         <p>Also see our page on <a href="removals-crawley-to-brighton.html">removals from Crawley to Brighton</a> for more information on this route.</p>
@@ -126,9 +126,25 @@
                     <option value="pick">I have a date</option>
                   </select>
                 </div>
-                <input type="date" id="move_date" name="move_date" style="display:none;margin-top:8px;">
+                <input type="date" id="move_date" name="move_date" placeholder="Select your move date" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
               </div>
             </div>
+            <div class="form-group">
+              <label for="referral_source">How did you find us?</label>
+              <div class="select-wrap">
+                <select id="referral_source" name="referral_source" onchange="toggleReferral(this)">
+                  <option value="" disabled selected>Select</option>
+                  <option value="Google search">Google search</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Recommended by a friend or family">Recommended by a friend or family</option>
+                  <option value="Recommended by an estate agent">Recommended by an estate agent</option>
+                  <option value="Local newspaper or press">Local newspaper or press</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <input type="text" id="referral_name" name="referral_name" placeholder="Who recommended you? (optional)" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
+            </div>
+
             <button type="submit" class="btn-submit">Get Free Quotes &rarr;</button>
             <p class="form-note">Free to use. Your details go to removal companies only.</p>
           </form>
@@ -181,6 +197,12 @@
     if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
     else { d.style.display = 'none'; d.required = false; d.value = ''; }
   }
+  function toggleReferral(sel) {
+    const r = document.getElementById('referral_name');
+    if (!r) return;
+    if (sel.value === 'Recommended by a friend or family' || sel.value === 'Recommended by an estate agent') { r.style.display = 'block'; }
+    else { r.style.display = 'none'; r.value = ''; }
+  }
   const md = document.getElementById('move_date');
   if (md) md.setAttribute('min', new Date().toISOString().split('T')[0]);
   const form = document.getElementById('quoteForm');
@@ -191,8 +213,8 @@
     try {
       const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
+      else { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
+    } catch { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
   });
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {

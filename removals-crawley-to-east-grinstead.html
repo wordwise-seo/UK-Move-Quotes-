@@ -57,7 +57,7 @@
   <div class="page-hero-inner">
     <span class="page-label">Crawley to East Grinstead</span>
     <h1>Removals from Crawley to East Grinstead. <em>Local knowledge, fair prices.</em></h1>
-    <p class="page-hero-sub">Crawley to East Grinstead is around 10 miles east across West Sussex — a familiar route for local removal companies covering the area. Get free quotes and compare before you book.</p>
+    <p class="page-hero-sub">Crawley to East Grinstead is around 10 miles east across West Sussex, a familiar route for local removal companies covering the area. Get free quotes and compare before you book.</p>
   </div>
 </section>
 <section class="section" style="background:var(--white);">
@@ -65,9 +65,9 @@
     <div class="two-col">
       <div class="two-col-text">
         <h2>Moving between Crawley and East Grinstead</h2>
-        <p>Crawley and East Grinstead are around 10 miles apart — a short and straightforward route for removal companies covering West Sussex. The journey typically takes 20 to 30 minutes depending on traffic and the route taken through the High Weald.</p>
+        <p>Crawley and East Grinstead are around 10 miles apart, a short and straightforward route for removal companies covering West Sussex. The journey typically takes 20 to 30 minutes depending on traffic and the route taken through the High Weald.</p>
         <p>Both towns are well served by removal companies who work across the area regularly. Access is generally good at both ends though some older streets in East Grinstead town centre can be tighter for large removal vehicles. Mention any access complications when you request quotes.</p>
-        <p>For moves between the two towns a man with a van is often worth considering for smaller properties — the short distance makes it ideal and the cost saving can be significant. For larger family homes a full removal company is usually better value.</p>
+        <p>For moves between the two towns a man with a van is often worth considering for smaller properties, the short distance makes it ideal and the cost saving can be significant. For larger family homes a full removal company is usually better value.</p>
         <h2>Cost of a Crawley to East Grinstead removal</h2>
         <p>Because the distance is short, prices are towards the lower end of the scale. A two bedroom property can typically be moved for between £300 and £600. A three bedroom house usually falls between £500 and £900. Get quotes from local companies to see what your specific move comes to.</p>
       </div>
@@ -123,9 +123,25 @@
             <option value="pick">I have a date</option>
           </select>
         </div>
-        <input type="date" id="move_date" name="move_date" style="display:none;margin-top:8px;">
+        <input type="date" id="move_date" name="move_date" placeholder="Select your move date" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
       </div>
     </div>
+            <div class="form-group">
+              <label for="referral_source">How did you find us?</label>
+              <div class="select-wrap">
+                <select id="referral_source" name="referral_source" onchange="toggleReferral(this)">
+                  <option value="" disabled selected>Select</option>
+                  <option value="Google search">Google search</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Recommended by a friend or family">Recommended by a friend or family</option>
+                  <option value="Recommended by an estate agent">Recommended by an estate agent</option>
+                  <option value="Local newspaper or press">Local newspaper or press</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <input type="text" id="referral_name" name="referral_name" placeholder="Who recommended you? (optional)" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
+            </div>
+
     <button type="submit" class="btn-submit">Get Free Quotes &rarr;</button>
     <p class="form-note">Free to use. Local companies only. No spam.</p>
   </form>
@@ -178,6 +194,12 @@
     if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
     else { d.style.display = 'none'; d.required = false; d.value = ''; }
   }
+  function toggleReferral(sel) {
+    const r = document.getElementById('referral_name');
+    if (!r) return;
+    if (sel.value === 'Recommended by a friend or family' || sel.value === 'Recommended by an estate agent') { r.style.display = 'block'; }
+    else { r.style.display = 'none'; r.value = ''; }
+  }
   const form = document.getElementById('quoteForm');
   if (form) form.addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -186,8 +208,8 @@
     try {
       const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
+      else { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
+    } catch { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
   });
 </script>
 </body>

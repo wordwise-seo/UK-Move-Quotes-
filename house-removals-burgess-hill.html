@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="House removals in Burgess Hill, West Sussex — free quotes from trusted local removal companies. No obligation, quotes within 24 hours.">
+<meta name="description" content="House removals in Burgess Hill, West Sussex, free quotes from trusted local removal companies. No obligation, quotes within 24 hours.">
 <title>House Removals Burgess Hill | Free Quotes | UK Move Quotes</title>
 <link rel="canonical" href="https://ukmovequotes.co.uk/house-removals-burgess-hill.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +66,7 @@
       <div class="two-col-text">
         <h2>House removals in Burgess Hill</h2>
         <p>Burgess Hill has a diverse housing stock ranging from modern estates built over the last twenty years to Victorian and Edwardian properties near the town centre. The town is particularly popular with families and commuters who need good access to Brighton, Haywards Heath, and London by train.</p>
-        <p>Access in Burgess Hill is generally good — the town has wide residential roads and reasonable parking in most areas. The newer developments on the outskirts tend to be the most straightforward for removal vehicles. The older central streets can be tighter but experienced local companies handle them regularly.</p>
+        <p>Access in Burgess Hill is generally good, the town has wide residential roads and reasonable parking in most areas. The newer developments on the outskirts tend to be the most straightforward for removal vehicles. The older central streets can be tighter but experienced local companies handle them regularly.</p>
         <p>Burgess Hill station gives fast links to Brighton in around 20 minutes and London Bridge in around 55 minutes, which makes it a popular destination for people moving out of both cities.</p>
       </div>
       <div><div class="inline-form" id="quote-form">
@@ -121,9 +121,25 @@
             <option value="pick">I have a date</option>
           </select>
         </div>
-        <input type="date" id="move_date" name="move_date" style="display:none;margin-top:8px;">
+        <input type="date" id="move_date" name="move_date" placeholder="Select your move date" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
       </div>
     </div>
+            <div class="form-group">
+              <label for="referral_source">How did you find us?</label>
+              <div class="select-wrap">
+                <select id="referral_source" name="referral_source" onchange="toggleReferral(this)">
+                  <option value="" disabled selected>Select</option>
+                  <option value="Google search">Google search</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Recommended by a friend or family">Recommended by a friend or family</option>
+                  <option value="Recommended by an estate agent">Recommended by an estate agent</option>
+                  <option value="Local newspaper or press">Local newspaper or press</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <input type="text" id="referral_name" name="referral_name" placeholder="Who recommended you? (optional)" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
+            </div>
+
     <button type="submit" class="btn-submit">Get Free Quotes &rarr;</button>
     <p class="form-note">Free to use. Local companies only. No spam.</p>
   </form>
@@ -176,6 +192,12 @@
     if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
     else { d.style.display = 'none'; d.required = false; d.value = ''; }
   }
+  function toggleReferral(sel) {
+    const r = document.getElementById('referral_name');
+    if (!r) return;
+    if (sel.value === 'Recommended by a friend or family' || sel.value === 'Recommended by an estate agent') { r.style.display = 'block'; }
+    else { r.style.display = 'none'; r.value = ''; }
+  }
   const form = document.getElementById('quoteForm');
   if (form) form.addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -184,8 +206,8 @@
     try {
       const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
+      else { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
+    } catch { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
   });
 </script>
 </body>

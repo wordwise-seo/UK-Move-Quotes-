@@ -67,9 +67,9 @@
     <div class="two-col">
       <div class="two-col-text">
         <h2>Moving from Brighton to London</h2>
-        <p>Brighton to Central London is around 55 miles — a well travelled route for removal companies covering East and West Sussex. The journey north on the A23 is generally straightforward outside of peak hours, though the approach into London can add significant time depending on traffic and which part of the capital you are heading to.</p>
+        <p>Brighton to Central London is around 55 miles, a well travelled route for removal companies covering East and West Sussex. The journey north on the A23 is generally straightforward outside of peak hours, though the approach into London can add significant time depending on traffic and which part of the capital you are heading to.</p>
         <p>Brighton to South London neighbourhoods like Brixton, Clapham, Streatham, and Croydon is one of the most common versions of this move. Many people who have been living in Brighton make the move north for work or family reasons, and removal companies who do this route regularly know both cities well.</p>
-        <p>The complications at the Brighton end are the usual ones — parking suspensions if needed, staircase access in Victorian properties. The London end adds ULEZ charges and the possibility of congestion charge depending on where you are moving to. Ask your removal company to confirm how they handle these when you discuss the move.</p>
+        <p>The complications at the Brighton end are the usual ones, parking suspensions if needed, staircase access in Victorian properties. The London end adds ULEZ charges and the possibility of congestion charge depending on where you are moving to. Ask your removal company to confirm how they handle these when you discuss the move.</p>
         <h2>Cost of a Brighton to London removal</h2>
         <p>A two bedroom property moving from Brighton to London typically costs between £700 and £1,200. A three or four bedroom house ranges from £1,000 to £1,800 or more depending on volume, access at both ends, and the specific London destination. ULEZ charges may add to the final cost.</p>
       </div>
@@ -125,9 +125,25 @@
                     <option value="pick">I have a date</option>
                   </select>
                 </div>
-                <input type="date" id="move_date" name="move_date" style="display:none;margin-top:8px;">
+                <input type="date" id="move_date" name="move_date" placeholder="Select your move date" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
               </div>
             </div>
+            <div class="form-group">
+              <label for="referral_source">How did you find us?</label>
+              <div class="select-wrap">
+                <select id="referral_source" name="referral_source" onchange="toggleReferral(this)">
+                  <option value="" disabled selected>Select</option>
+                  <option value="Google search">Google search</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Recommended by a friend or family">Recommended by a friend or family</option>
+                  <option value="Recommended by an estate agent">Recommended by an estate agent</option>
+                  <option value="Local newspaper or press">Local newspaper or press</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <input type="text" id="referral_name" name="referral_name" placeholder="Who recommended you? (optional)" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
+            </div>
+
             <button type="submit" class="btn-submit">Get Free Quotes &rarr;</button>
             <p class="form-note">Free to use. Your details go to removal companies only.</p>
           </form>
@@ -153,7 +169,7 @@
       <div class="card">
         <div class="card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="5" width="16" height="12" rx="2" stroke="#E8830A" stroke-width="1.5"/><path d="M3 9h16" stroke="#E8830A" stroke-width="1.5"/></svg></div>
         <h3>Check ULEZ and parking at the London end</h3>
-        <p>ULEZ applies across most of Greater London. Many London streets also require parking bay suspensions for removal lorries. Your removal company should handle both — confirm this when you book.</p>
+        <p>ULEZ applies across most of Greater London. Many London streets also require parking bay suspensions for removal lorries. Your removal company should handle both, confirm this when you book.</p>
       </div>
       <div class="card">
         <div class="card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M10 2C7.2 2 5 4.2 5 7c0 4 5 11 5 11s5-7 5-11c0-2.8-2.2-5-5-5z" stroke="#E8830A" stroke-width="1.5"/><circle cx="10" cy="7" r="2" stroke="#E8830A" stroke-width="1.5"/></svg></div>
@@ -203,6 +219,12 @@
     if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
     else { d.style.display = 'none'; d.required = false; d.value = ''; }
   }
+  function toggleReferral(sel) {
+    const r = document.getElementById('referral_name');
+    if (!r) return;
+    if (sel.value === 'Recommended by a friend or family' || sel.value === 'Recommended by an estate agent') { r.style.display = 'block'; }
+    else { r.style.display = 'none'; r.value = ''; }
+  }
   const md = document.getElementById('move_date');
   if (md) md.setAttribute('min', new Date().toISOString().split('T')[0]);
   const form = document.getElementById('quoteForm');
@@ -213,8 +235,8 @@
     try {
       const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
+      else { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
+    } catch { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
   });
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {

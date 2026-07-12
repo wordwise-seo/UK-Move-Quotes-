@@ -59,7 +59,7 @@
   <div class="page-hero-inner">
     <span class="page-label">Haywards Heath to Crawley</span>
     <h1>Removals between Haywards Heath and Crawley. <em>Local companies, fair prices.</em></h1>
-    <p class="page-hero-sub">Haywards Heath and Crawley are around 15 miles apart on the A23 — a short hop for local removal companies covering West Sussex. Get free quotes and compare before you book.</p>
+    <p class="page-hero-sub">Haywards Heath and Crawley are around 15 miles apart on the A23, a short hop for local removal companies covering West Sussex. Get free quotes and compare before you book.</p>
   </div>
 </section>
 <section class="section" style="background:var(--white);">
@@ -67,11 +67,11 @@
     <div class="two-col">
       <div class="two-col-text">
         <h2>Moving between Haywards Heath and Crawley</h2>
-        <p>Haywards Heath and Crawley are around 15 miles apart along the A23 corridor — one of the most common local relocation routes in West Sussex. Both towns are well served by removal companies who cover the full length of this road regularly.</p>
+        <p>Haywards Heath and Crawley are around 15 miles apart along the A23 corridor, one of the most common local relocation routes in West Sussex. Both towns are well served by removal companies who cover the full length of this road regularly.</p>
         <p>The journey between the two typically takes 20 to 30 minutes depending on traffic. Most property sizes can be moved between the two towns comfortably within a single working day, making it one of the more straightforward jobs for local removal companies.</p>
         <p>Access at both ends is generally good. Crawley has reasonable road access in most residential areas and Haywards Heath town centre and surrounding villages are similarly straightforward for removal vehicles.</p>
         <h2>Cost of a Haywards Heath to Crawley removal</h2>
-        <p>Because of the short distance, prices are towards the lower end of the scale. A two bedroom property can typically be moved for between £300 to £600. A three bedroom house usually falls between £450 and £850. For smaller moves a <a href="man-with-a-van-haywards-heath.html">man with a van</a> is worth considering — the short distance makes it ideal.</p>
+        <p>Because of the short distance, prices are towards the lower end of the scale. A two bedroom property can typically be moved for between £300 to £600. A three bedroom house usually falls between £450 and £850. For smaller moves a <a href="man-with-a-van-haywards-heath.html">man with a van</a> is worth considering, the short distance makes it ideal.</p>
       </div>
       <div><div class="inline-form" id="quote-form">
           <h2 style="font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:6px;">Get your free quotes</h2>
@@ -125,9 +125,25 @@
                     <option value="pick">I have a date</option>
                   </select>
                 </div>
-                <input type="date" id="move_date" name="move_date" style="display:none;margin-top:8px;">
+                <input type="date" id="move_date" name="move_date" placeholder="Select your move date" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
               </div>
             </div>
+            <div class="form-group">
+              <label for="referral_source">How did you find us?</label>
+              <div class="select-wrap">
+                <select id="referral_source" name="referral_source" onchange="toggleReferral(this)">
+                  <option value="" disabled selected>Select</option>
+                  <option value="Google search">Google search</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Recommended by a friend or family">Recommended by a friend or family</option>
+                  <option value="Recommended by an estate agent">Recommended by an estate agent</option>
+                  <option value="Local newspaper or press">Local newspaper or press</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <input type="text" id="referral_name" name="referral_name" placeholder="Who recommended you? (optional)" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
+            </div>
+
             <button type="submit" class="btn-submit">Get Free Quotes &rarr;</button>
             <p class="form-note">Free to use. Your details go to removal companies only.</p>
           </form>
@@ -180,6 +196,12 @@
     if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
     else { d.style.display = 'none'; d.required = false; d.value = ''; }
   }
+  function toggleReferral(sel) {
+    const r = document.getElementById('referral_name');
+    if (!r) return;
+    if (sel.value === 'Recommended by a friend or family' || sel.value === 'Recommended by an estate agent') { r.style.display = 'block'; }
+    else { r.style.display = 'none'; r.value = ''; }
+  }
   const md = document.getElementById('move_date');
   if (md) md.setAttribute('min', new Date().toISOString().split('T')[0]);
   const form = document.getElementById('quoteForm');
@@ -190,8 +212,8 @@
     try {
       const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
+      else { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
+    } catch { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
   });
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {

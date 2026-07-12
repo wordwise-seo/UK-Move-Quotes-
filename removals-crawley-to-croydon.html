@@ -59,7 +59,7 @@
   <div class="page-hero-inner">
     <span class="page-label">Crawley to Croydon</span>
     <h1>Removals between Crawley and Croydon. <em>A familiar route for local companies.</em></h1>
-    <p class="page-hero-sub">Crawley to Croydon is around 22 miles up the A23 — a regular route for removal companies based in West Sussex. No congestion charge, straightforward roads, and companies who have done the journey many times.</p>
+    <p class="page-hero-sub">Crawley to Croydon is around 22 miles up the A23, a regular route for removal companies based in West Sussex. No congestion charge, straightforward roads, and companies who have done the journey many times.</p>
   </div>
 </section>
 <section class="section" style="background:var(--white);">
@@ -67,8 +67,8 @@
     <div class="two-col">
       <div class="two-col-text">
         <h2>Removals between Crawley and Croydon</h2>
-        <p>Croydon is around 22 miles north of Crawley — closer than Central London and without the congestion charge zone. It is a popular destination for people moving out of Crawley who want to be closer to London, and equally popular for people leaving Croydon who want more space and a quieter setting.</p>
-        <p>The route between the two is straightforward — the A23 links them directly and most of the journey is on dual carriageway. Traffic is the main variable and removal companies doing this route regularly know which times of day work best.</p>
+        <p>Croydon is around 22 miles north of Crawley, closer than Central London and without the congestion charge zone. It is a popular destination for people moving out of Crawley who want to be closer to London, and equally popular for people leaving Croydon who want more space and a quieter setting.</p>
+        <p>The route between the two is straightforward, the A23 links them directly and most of the journey is on dual carriageway. Traffic is the main variable and removal companies doing this route regularly know which times of day work best.</p>
         <p>Croydon has a mix of property types. New developments tend to have better parking and lift access than the older converted properties closer to the town centre. Let your removal company know about any access complications when you request quotes so they can plan accordingly.</p>
         <h2>Cost of a Crawley to Croydon removal</h2>
         <p>A two bedroom property can typically be moved between Crawley and Croydon for between £450 and £800. A three bedroom house usually falls between £650 and £1,100 depending on access and volume. ULEZ applies to most of Croydon so it is worth clarifying with your removal company whether this is included in their quote.</p>
@@ -125,9 +125,25 @@
                     <option value="pick">I have a date</option>
                   </select>
                 </div>
-                <input type="date" id="move_date" name="move_date" style="display:none;margin-top:8px;">
+                <input type="date" id="move_date" name="move_date" placeholder="Select your move date" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
               </div>
             </div>
+            <div class="form-group">
+              <label for="referral_source">How did you find us?</label>
+              <div class="select-wrap">
+                <select id="referral_source" name="referral_source" onchange="toggleReferral(this)">
+                  <option value="" disabled selected>Select</option>
+                  <option value="Google search">Google search</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Recommended by a friend or family">Recommended by a friend or family</option>
+                  <option value="Recommended by an estate agent">Recommended by an estate agent</option>
+                  <option value="Local newspaper or press">Local newspaper or press</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <input type="text" id="referral_name" name="referral_name" placeholder="Who recommended you? (optional)" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
+            </div>
+
             <button type="submit" class="btn-submit">Get My Free Quotes &rarr;</button>
             <p class="form-note">Free to use. Your details go to removal companies only.</p>
           </form>
@@ -207,6 +223,12 @@
     if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
     else { d.style.display = 'none'; d.required = false; d.value = ''; }
   }
+  function toggleReferral(sel) {
+    const r = document.getElementById('referral_name');
+    if (!r) return;
+    if (sel.value === 'Recommended by a friend or family' || sel.value === 'Recommended by an estate agent') { r.style.display = 'block'; }
+    else { r.style.display = 'none'; r.value = ''; }
+  }
   const md = document.getElementById('move_date');
   if (md) md.setAttribute('min', new Date().toISOString().split('T')[0]);
   const form = document.getElementById('quoteForm');
@@ -217,8 +239,8 @@
     try {
       const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
+      else { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
+    } catch { btn.textContent='Something went wrong. Please try again'; btn.disabled=false; }
   });
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
