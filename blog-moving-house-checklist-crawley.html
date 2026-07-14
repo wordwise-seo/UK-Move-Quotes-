@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Moving house checklist for Crawley homeowners — week by week from 8 weeks before to move day itself. Everything you need to organise for a smooth move in West Sussex.">
+<meta name="description" content="Moving house checklist for Crawley homeowners, week by week from 8 weeks before to move day itself. Everything you need to organise for a smooth move in West Sussex.">
 <title>Moving House Checklist for Crawley Homeowners | UK Move Quotes</title>
 <link rel="canonical" href="https://ukmovequotes.co.uk/blog-moving-house-checklist-crawley.html">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
@@ -154,8 +154,8 @@
         <p class="timing">Early planning</p>
         <ul class="checklist">
           <li>Get at least three removal quotes so you know what a fair price looks like for your specific move</li>
-          <li>Book your <a href="house-removals-crawley.html">removal company</a> as soon as you have a completion date — good companies in Crawley fill up fast, especially on Fridays</li>
-          <li>Start decluttering room by room — anything you are not taking with you should go now, not on the day</li>
+          <li>Book your <a href="house-removals-crawley.html">removal company</a> as soon as you have a completion date, good companies in Crawley fill up fast, especially on Fridays</li>
+          <li>Start decluttering room by room, anything you are not taking with you should go now, not on the day</li>
           <li>Contact your mortgage lender, solicitor, and estate agent to confirm timelines</li>
           <li>Notify your buildings and contents insurer about the move date and new address</li>
           <li>Check whether your current home needs any repairs before you hand it back</li>
@@ -166,13 +166,13 @@
         <h3>Four to six weeks before</h3>
         <p class="timing">Getting organised</p>
         <ul class="checklist">
-          <li>Start collecting boxes — removal companies, supermarkets, and local Facebook groups are all good sources</li>
-          <li>Pack non-essential items first — books, seasonal clothes, items in the loft</li>
+          <li>Start collecting boxes, removal companies, supermarkets, and local Facebook groups are all good sources, or see our <a href="moving-boxes.html">guide to the best moving boxes</a> if you'd rather buy a proper set</li>
+          <li>Pack non-essential items first, books, seasonal clothes, items in the loft</li>
           <li>Label every box with its destination room and a brief contents note, not just a room name</li>
-          <li>Arrange redirect of your post through Royal Mail — it takes a few days to process</li>
+          <li>Arrange redirect of your post through Royal Mail, it takes a few days to process</li>
           <li>Notify your employer, bank, HMRC, and DVLA of your change of address</li>
-          <li>Transfer or cancel any local services — gym memberships, council tax, water, energy</li>
-          <li>Book a parking suspension outside your new address if needed — Crawley town centre and some residential streets require notice to the council</li>
+          <li>Transfer or cancel any local services, gym memberships, council tax, water, energy</li>
+          <li>Book a parking suspension outside your new address if needed, Crawley town centre and some residential streets require notice to the council</li>
         </ul>
       </div>
 
@@ -184,7 +184,7 @@
           <li>Pack most of your belongings, leaving out only what you need for daily life</li>
           <li>Take photos of the current state of your home for your records</li>
           <li>Arrange for someone to look after children or pets on move day if needed</li>
-          <li>Transfer or set up broadband at your new address — lead times can be longer than you expect</li>
+          <li>Transfer or set up broadband at your new address, lead times can be longer than you expect</li>
           <li>Contact utility companies to give meter readings on both properties on move day</li>
           <li>Confirm with your solicitor that everything is on track for completion</li>
         </ul>
@@ -195,7 +195,7 @@
         <p class="timing">Last minute</p>
         <ul class="checklist">
           <li>Finish packing everything except what you need for the morning</li>
-          <li>Prepare an essentials box to go in your car rather than the van — kettle, mugs, phone charger, important documents, a change of clothes, medication, toilet paper</li>
+          <li>Prepare an essentials box to go in your car rather than the van, kettle, mugs, phone charger, important documents, a change of clothes, medication, toilet paper</li>
           <li>Defrost the freezer and run the washing machine empty</li>
           <li>Charge your phone fully and make sure you have the removal company and solicitor's numbers saved</li>
           <li>Confirm your new address key collection arrangements</li>
@@ -206,7 +206,7 @@
         <h3>Move day</h3>
         <p class="timing">The big day</p>
         <ul class="checklist">
-          <li>Be up and ready before the removal crew arrives — do not let them wait</li>
+          <li>Be up and ready before the removal crew arrives, do not let them wait</li>
           <li>Do a final walk-through of every room, cupboard, loft, shed, and garage before the van leaves</li>
           <li>Take meter readings at both properties and photograph them</li>
           <li>Hand over your keys once the van is loaded and you have done your walk-through</li>
@@ -299,25 +299,6 @@
       document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
       if (!open) item.classList.add('open');
     });
-  });
-  function toggleDate(sel) {
-    const d = document.getElementById('move_date');
-    if (!d) return;
-    if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
-    else { d.style.display = 'none'; d.required = false; d.value = ''; }
-  }
-  const md = document.getElementById('move_date');
-  if (md) md.setAttribute('min', new Date().toISOString().split('T')[0]);
-  const form = document.getElementById('quoteForm');
-  if (form) form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = form.querySelector('.btn-submit');
-    btn.textContent = 'Sending...'; btn.disabled = true;
-    try {
-      const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
-      if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
   });
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Best time to move house in West Sussex — how seasonal demand affects removal company availability and prices across Crawley, Horsham, and the surrounding area.">
+<meta name="description" content="Best time to move house in West Sussex, how seasonal demand affects removal company availability and prices across Crawley, Horsham, and the surrounding area.">
 <title>When Is the Best Time to Move House in West Sussex? | UK Move Quotes</title>
 <link rel="canonical" href="https://ukmovequotes.co.uk/blog-best-time-to-move-west-sussex.html">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
@@ -268,25 +268,6 @@
       document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
       if (!open) item.classList.add('open');
     });
-  });
-  function toggleDate(sel) {
-    const d = document.getElementById('move_date');
-    if (!d) return;
-    if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
-    else { d.style.display = 'none'; d.required = false; d.value = ''; }
-  }
-  const md = document.getElementById('move_date');
-  if (md) md.setAttribute('min', new Date().toISOString().split('T')[0]);
-  const form = document.getElementById('quoteForm');
-  if (form) form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = form.querySelector('.btn-submit');
-    btn.textContent = 'Sending...'; btn.disabled = true;
-    try {
-      const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
-      if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
   });
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {

@@ -715,7 +715,7 @@
             <select id="move_type" name="move_type" required>
               <option value="" disabled selected>What are you moving?</option>
               <option>Full house or flat move</option>
-              <option>Man with a van — smaller move</option>
+              <option>Man with a van, smaller move</option>
               <option>Office or commercial move</option>
               <option>Single items or furniture only</option>
               <option>Storage only</option>
@@ -760,9 +760,9 @@
           <div class="select-wrap">
             <select id="packing" name="packing_service">
               <option value="" disabled selected>Select</option>
-              <option>No — I will pack myself</option>
-              <option>Yes — full packing service</option>
-              <option>Yes — partial packing help</option>
+              <option>No, I will pack myself</option>
+              <option>Yes, full packing service</option>
+              <option>Yes, partial packing help</option>
               <option>Not sure yet</option>
             </select>
           </div>
@@ -776,7 +776,7 @@
               <option>Stairs only, no lift</option>
               <option>Narrow street or difficult parking</option>
               <option>Both stairs and parking issues</option>
-              <option>Other — I will explain below</option>
+              <option>Other, I will explain below</option>
             </select>
           </div>
         </div>
@@ -793,7 +793,7 @@
           <path d="M16 26l7 7 13-14" stroke="#E8830A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <h3>Your request is in.</h3>
-        <p>Local removal companies will be in touch within 24 hours with their quotes. Check your email and phone — including your spam folder just in case.</p>
+        <p>Local removal companies will be in touch within 24 hours with their quotes. Check your email and phone, including your spam folder just in case.</p>
       </div>
     </div>
   </div>
@@ -988,11 +988,12 @@
     <a href="man-with-a-van-crawley.html">Man With a Van</a>
     <a href="office-removals-crawley.html">Office Removals</a>
     <a href="removal-costs-crawley.html">Costs Guide</a>
+    <a href="moving-boxes.html">Moving Boxes</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="privacy.html">Privacy Policy</a>
   </div>
-  <p style="margin-top: 24px;">&copy; 2025 UK Move Quotes. All rights reserved.</p>
+  <p style="margin-top: 24px;">&copy; 2026 UK Move Quotes. All rights reserved.</p>
   <p style="margin-top: 8px;">Website designed and built by <a href="https://wordwise.uk" target="_blank" rel="noopener" style="color:#E8830A;text-decoration:none;">Wordwise</a></p>
 </footer>
 
@@ -1029,8 +1030,8 @@
     try {
       const res = await fetch(form.action, { method:'POST', body: new FormData(form), headers:{'Accept':'application/json'} });
       if (res.ok) { form.style.display='none'; document.getElementById('successCard').style.display='block'; }
-      else { btn.textContent = 'Something went wrong — please try again'; btn.disabled = false; }
-    } catch { btn.textContent = 'Something went wrong — please try again'; btn.disabled = false; }
+      else { btn.textContent = 'Something went wrong. Please try again'; btn.disabled = false; }
+    } catch { btn.textContent = 'Something went wrong. Please try again'; btn.disabled = false; }
   });
 
   function toggleDatePicker(select) {

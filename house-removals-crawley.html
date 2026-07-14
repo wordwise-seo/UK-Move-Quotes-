@@ -103,7 +103,7 @@
       <div class="two-col-text">
         <h2>What to look for in a Crawley removal company</h2>
         <p>There are plenty of removal companies operating in and around Crawley, but they are not all the same. The difference between a smooth move and a stressful one often comes down to the people handling your belongings on the day.</p>
-        <p>Local companies have a genuine advantage over national operators. They know which streets in Pound Hill have parking restrictions. They know the tight turns in Tilgate. They have done dozens of moves from RH10 and RH11 postcodes and they know what to expect before the van even arrives.</p>
+        <p>Local companies have a genuine advantage over national operators. They know which streets in Pound Hill have parking restrictions. They know the tight turns in Tilgate. They have done dozens of moves from <a href="removals-three-bridges.html">Three Bridges</a>, <a href="removals-maidenbower.html">Maidenbower</a>, <a href="removals-langley-green.html">Langley Green</a> and every other RH10 and RH11 postcode and they know what to expect before the van even arrives.</p>
         <p>When you request quotes through UK Move Quotes, you hear from companies who are genuinely based nearby, not firms sending a crew from 50 miles away who add travel time to your bill before they have started loading.</p>
         <h2>What affects the cost of your move?</h2>
         <p>The two biggest factors are property size and distance. A two-bedroom flat moving to a nearby street is a very different job to a four-bedroom house heading across the county. The time of year and your move date also play a part. Fridays and the end of the month are the busiest days for removal companies in Crawley, which can affect availability and sometimes price.</p>
@@ -162,25 +162,9 @@
                     <option value="pick">I have a date</option>
                   </select>
                 </div>
-                <input type="date" id="move_date" name="move_date" placeholder="Select your move date" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
+                <input type="date" id="move_date" name="move_date" style="display:none;margin-top:8px;">
               </div>
             </div>
-            <div class="form-group">
-              <label for="referral_source">How did you find us?</label>
-              <div class="select-wrap">
-                <select id="referral_source" name="referral_source" onchange="toggleReferral(this)">
-                  <option value="" disabled selected>Select</option>
-                  <option value="Google search">Google search</option>
-                  <option value="Facebook">Facebook</option>
-                  <option value="Recommended by a friend or family">Recommended by a friend or family</option>
-                  <option value="Recommended by an estate agent">Recommended by an estate agent</option>
-                  <option value="Local newspaper or press">Local newspaper or press</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-              <input type="text" id="referral_name" name="referral_name" placeholder="Who recommended you? (optional)" style="display:none;margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;color:var(--text);">
-            </div>
-
             <button type="submit" class="btn-submit">Get My Free Quotes &rarr;</button>
             <p class="form-note">Free to use. Your details go to removal companies only.</p>
           </form>
@@ -290,12 +274,6 @@
     if (!d) return;
     if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
     else { d.style.display = 'none'; d.required = false; d.value = ''; }
-  }
-  function toggleReferral(sel) {
-    const r = document.getElementById('referral_name');
-    if (!r) return;
-    if (sel.value === 'Recommended by a friend or family' || sel.value === 'Recommended by an estate agent') { r.style.display = 'block'; }
-    else { r.style.display = 'none'; r.value = ''; }
   }
   const md = document.getElementById('move_date');
   if (md) md.setAttribute('min', new Date().toISOString().split('T')[0]);

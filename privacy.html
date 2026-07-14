@@ -154,25 +154,6 @@
       if (!open) item.classList.add('open');
     });
   });
-  function toggleDate(sel) {
-    const d = document.getElementById('move_date');
-    if (!d) return;
-    if (sel.value === 'pick') { d.style.display = 'block'; d.required = true; }
-    else { d.style.display = 'none'; d.required = false; d.value = ''; }
-  }
-  const md = document.getElementById('move_date');
-  if (md) md.setAttribute('min', new Date().toISOString().split('T')[0]);
-  const form = document.getElementById('quoteForm');
-  if (form) form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = form.querySelector('.btn-submit');
-    btn.textContent = 'Sending...'; btn.disabled = true;
-    try {
-      const res = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} });
-      if (res.ok) { form.style.display='none'; document.getElementById('successMsg').style.display='block'; }
-      else { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-    } catch { btn.textContent='Something went wrong — please try again'; btn.disabled=false; }
-  });
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
       const t = document.querySelector(this.getAttribute('href'));
